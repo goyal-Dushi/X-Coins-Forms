@@ -1,0 +1,18 @@
+@import "../sass/partial";
+
+.circle
+{
+    width: 64px;
+    font-weight: 500;
+    border-radius: 100%;
+    color: $blue-grey;
+    text-align: center;
+    line-height: 1.17;
+    font-size: 24px;
+    // CIRCULAR STD
+    font-family: 'Varela Round', sans-serif;
+    height: 64px;
+    padding: 18px 27px;
+    opacity: 0.05;
+    background-color: $cerulean;
+}
