@@ -4,7 +4,7 @@ import "./label.scss";
 function Label(props)
 {
     return(
-        <label htmlFor={props.title}>{props.title}</label>
+        <label htmlFor={props.labelFor}>{props.title}</label>
     )
 }
 

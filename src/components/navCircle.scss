@@ -4,15 +4,20 @@
 {
     width: 64px;
     font-weight: 500;
+    margin: 0 21px 13px 22px;
     border-radius: 100%;
     color: $blue-grey;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     line-height: 1.17;
     font-size: 24px;
-    // CIRCULAR STD
-    font-family: 'Varela Round', sans-serif;
+    font-family: $Circular-Std;
     height: 64px;
     padding: 18px 27px;
-    opacity: 0.05;
-    background-color: $cerulean;
+    background-color: $cerulean-5;
+}
+
+.circle-wrapper{
+    text-align: center;
 }

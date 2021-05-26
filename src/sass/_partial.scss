@@ -1,7 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
 
+// FONT-FAMILY
+$Accurat-pro : 'Source Sans Pro', sans-serif;
+$Circular-Std : 'Varela Round', sans-serif;
 
-$blue-grey : #637696;
-$cerulean : #009cde;
-$dark-lime-green : #86c306;
+
+// GLOBAL COLORS
+$golden-yellow : rgb(248, 196, 28);
+$golden-yellow-10 : rgba(248, 196, 28,0.1);
+$golden-yellow-20 : rgba(248, 196, 28,0.2);
+
+$squash : rgb(230, 180, 19);
+
+$blue-grey : rgb(99, 118, 150);
+$blue-grey-20 : rgba(99, 118, 150,0.2);
+$blue-grey-40 : rgba(99, 118, 150,0.4);
+$blue-grey-50 : rgba(99, 118, 150,0.5);
+
+$grey-shadow: rgba(59, 88, 104, 0.07);
+
+$cerulean : rgb(0, 156, 222);
+$cerulean-30 : rgba(0, 156, 222, 0.3);
+$cerulean-20 : rgba(0, 156, 222, 0.2);
+$cerulean-15 : rgba(0, 156, 222, 0.15);
+$cerulean-5 : rgba(0, 156, 222, 0.05);
+
+$dark-lime-green : rgb(134, 195, 6);
+
+// GLOBAL ATTRIBUTES: CSS RESET
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

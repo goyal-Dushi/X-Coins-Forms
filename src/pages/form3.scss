@@ -1,0 +1,22 @@
+@import "../sass/partial";
+
+.info-container{
+    width: 553px;
+    height: 90px;
+    margin: 53px 0 30px;
+    padding: 15px 155px 15px 25px;
+    border: none;
+    outline: none;
+    text-align: left;
+    background-color: white;
+    box-shadow: 0 10px 20px 0 $grey-shadow;
+    font-family: $Accurat-pro;
+    font-size: 16px;
+    line-height: 1.75;
+    color: $blue-grey;
+}
+
+.info-container span{
+    color: black;
+    margin-right: 10px;
+}

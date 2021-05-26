@@ -4,15 +4,20 @@ button
 {
     width: 553px;
     height: 64px;
-    padding: 18px 216px 22px 217px;
+    text-align: center;
     border-radius: 32px;
-    box-shadow: 0 2px 4px 0 rgba(183, 194, 6, 0.3);
+    border: none;
+    outline: none;
     background-color: $dark-lime-green;
     // ACCURAT PRO
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: $Accurat-pro;
     line-height: 1.5;
     font-size: 16px;
     letter-spacing: 1px;
     color: #ffffff;
     font-weight: bold;
+}
+
+button:hover{
+    box-shadow: 0 2px 4px 0 rgba(183, 194, 6, 0.3);
 }

@@ -1,9 +1,10 @@
 @import "../sass/partial";
 
 label{
-    color : $blue-grey;
+    color : $blue-grey-50;
     font-size: 16px;
     line-height: 1.63;
+    margin-top: 16px;
     // ACCURAT PRO
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: $Accurat-pro;
 }

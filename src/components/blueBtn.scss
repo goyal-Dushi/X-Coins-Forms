@@ -1,0 +1,15 @@
+@import "../sass/partial";
+
+button{
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-family: $Accurat-pro;
+    line-height: 1.57;
+    letter-spacing: 1px;
+    color: white;
+    background-color: $cerulean;
+    box-shadow: 0 2px 4px 0 $cerulean-30;
+}

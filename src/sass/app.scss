@@ -1,0 +1,22 @@
+@import "./partial";
+
+.App{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.circle-container{
+    display: flex;
+    align-items: center;
+    margin-bottom: 53px;
+}
+
+hr{
+    height: 1px;
+    width: 60px;
+    border: none;
+    margin: 32px 9px 70px 15px;
+    background-color: $blue-grey-20;
+}
