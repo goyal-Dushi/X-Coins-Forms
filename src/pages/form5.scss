@@ -1,0 +1,26 @@
+@import "../sass/partial";
+
+input[type="file"]{
+    // visibility: hidden;
+    background-color: white;
+    height: 60px;
+    padding-left: 0px;
+}
+
+input[type="file"]::-webkit-file-upload-button
+{
+    height: 50px;
+    margin-right: 20px;
+    width: 159px;
+    // text-align: center;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-family: $Accurat-pro;
+    line-height: 1.57;
+    letter-spacing: 1px;
+    color: white;
+    background-color: $cerulean;
+    box-shadow: 0 2px 4px 0 $cerulean-30;
+}

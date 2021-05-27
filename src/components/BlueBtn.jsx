@@ -4,7 +4,7 @@ import "./blueBtn.scss"
 function  BlueBtn(props)
 {
     return(
-        <button type={props.type} style={{width:props.btnWidth}} >
+        <button className="blue-btn" type={props.type} style={{width:props.btnWidth}} >
             {props.title}
         </button>
     );

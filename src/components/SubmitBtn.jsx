@@ -4,7 +4,7 @@ import "./submitBtn.scss";
 function SubmitBtn(props)
 {
     return(
-        <button type={props.typeFor}>
+        <button className="green-btn" type={props.typeFor}>
             {props.name}
         </button>
     );

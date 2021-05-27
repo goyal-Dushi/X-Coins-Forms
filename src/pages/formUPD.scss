@@ -1,6 +1,6 @@
 @import "../sass/partial";
 
-form{
+.form-UPD{
     margin-top: 30px;
     width: 600px;
     display: flex;
@@ -17,7 +17,7 @@ form{
 
 .label-container{
     width: 553px;
-    padding-left: 110px;
+    padding-left: 75px;
 }
 
 .form1UPD-submit-btn{
@@ -25,7 +25,7 @@ form{
 }
 
 .pin-container input{
-    width: 63px;
+    width: 83px;
     font-size: 36px;
     border: none;
     outline: none;
@@ -35,10 +35,26 @@ form{
     background-color: $cerulean-5;
     color: $blue-grey;
     line-height: 0.89;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
-input:focus{
+.pin-container input:focus{
     box-shadow: 0 0 15px 0 $cerulean-20;
     border: solid 1px $cerulean-30;
     background-color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.error-msg{
+    display: block;
+    padding:5px 10px;
+    text-align: left;
+    width: 553px;
+    font-size: 16px;
+    color: red;
+    height: 20px;
 }

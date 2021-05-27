@@ -1,6 +1,6 @@
 @import "../sass/partial";
 
-button
+.green-btn
 {
     width: 553px;
     height: 64px;
@@ -18,6 +18,6 @@ button
     font-weight: bold;
 }
 
-button:hover{
+.green-btn:hover{
     box-shadow: 0 2px 4px 0 rgba(183, 194, 6, 0.3);
 }

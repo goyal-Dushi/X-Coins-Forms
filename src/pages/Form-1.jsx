@@ -5,6 +5,7 @@ import ClockIcon from "../images/icons/clock-icon.svg";
 import Label from "../components/Label";
 import SubmitButton from "../components/SubmitBtn";
 import "../sass/forms.scss";
+import { useHistory } from "react-router";
 
 const validate =(values) => {
     const errors = {};
@@ -36,18 +37,23 @@ const validate =(values) => {
     else if(values.password.length < 5){
         errors.password = "Password Length too short";
     }
+    if(!values.terms){
+        errors.terms = "Please accept the terms and Conditions"
+    }
 
     return errors;
 }
 
 function Form1()
 {
+    const history = useHistory();
     const formik = useFormik({
         initialValues : {
             firstName : '',
             lastName : '',
             email : '',
-            password : ''
+            password : '',
+            terms : false
         },
         validate,
         onSubmit: (values) => {
@@ -56,13 +62,15 @@ function Form1()
                 values.firstName+" "+
                 values.lastName
             );
+            history.push("/upd");
         }
     });
     
     return(
         <>
 
-        <Warning imgSrc={ClockIcon} altImg="Clock-Icon" 
+        <Warning imgSrc={ClockIcon} altImg="Clock-Icon"
+                    height={72} 
                     content="Once submitted,your profile cannot be changed. 
                     Please ensure that your information is correct." 
         />
@@ -125,13 +133,21 @@ function Form1()
             ): null}
 
             <div className="conditional-box" >
-                <input type="checkbox" name="terms" id="terms" />
+                <input 
+                type="checkbox" name="terms" id="terms" 
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.terms}
+                />
                 <p>
                     By clicking «Continue» you agree to our <a href="#" className="links">Terms</a> ,<a href="#" className="links"> Cookies Policy </a> and 
                     <a href="#" className="links"> Privacy Policy </a>. You may receive email and SMS notifications from 
                     us and can opt out at any time.
                 </p>
             </div>
+            {formik.errors.terms && formik.touched.terms ? 
+            ( <div className="error-msg"> {formik.errors.terms} </div> )
+            : null}
             
             <div className="form-1-submitBtn">
             <SubmitButton name="CONTINUE"  typeFor="submit" />
