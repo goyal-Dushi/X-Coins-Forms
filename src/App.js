@@ -1,6 +1,6 @@
 import React from 'react';
 import "./sass/app.scss";
-import {BrowserRouter as Router, Switch , Route} from "react-router-dom";
+import {HashRouter as Router, Switch , Route} from "react-router-dom";
 import Form1 from "./pages/Form-1";
 import Form1_UPD from "./pages/Form-1-UPD";
 import Form2 from "./pages/Form-2";
@@ -21,7 +21,7 @@ function App() {
         <hr />
         <NavCircle content="3" labelHead="Verify ID" />
       </div>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL} >
         <Switch>
           <Route exact path="/" component={Form1} />
           <Route exact path="/upd" component={Form1_UPD} />
