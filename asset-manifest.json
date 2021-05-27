@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/X-Coins-Forms/static/css/main.87c70bc8.chunk.css",
+    "main.js": "/X-Coins-Forms/static/js/main.13099081.chunk.js",
+    "main.js.map": "/X-Coins-Forms/static/js/main.13099081.chunk.js.map",
+    "runtime-main.js": "/X-Coins-Forms/static/js/runtime-main.6cac75c5.js",
+    "runtime-main.js.map": "/X-Coins-Forms/static/js/runtime-main.6cac75c5.js.map",
+    "static/js/2.e96b109b.chunk.js": "/X-Coins-Forms/static/js/2.e96b109b.chunk.js",
+    "static/js/2.e96b109b.chunk.js.map": "/X-Coins-Forms/static/js/2.e96b109b.chunk.js.map",
+    "index.html": "/X-Coins-Forms/index.html",
+    "static/css/main.87c70bc8.chunk.css.map": "/X-Coins-Forms/static/css/main.87c70bc8.chunk.css.map",
+    "static/js/2.e96b109b.chunk.js.LICENSE.txt": "/X-Coins-Forms/static/js/2.e96b109b.chunk.js.LICENSE.txt",
+    "static/media/attention-icon.65235be9.svg": "/X-Coins-Forms/static/media/attention-icon.65235be9.svg",
+    "static/media/clock-icon.e0d15e0f.svg": "/X-Coins-Forms/static/media/clock-icon.e0d15e0f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6cac75c5.js",
+    "static/js/2.e96b109b.chunk.js",
+    "static/css/main.87c70bc8.chunk.css",
+    "static/js/main.13099081.chunk.js"
+  ]
+}
