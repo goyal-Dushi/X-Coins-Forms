@@ -13,8 +13,8 @@ const validate = (values) => {
     if(!values.smsNumber){
         errors.smsNumber = "Please type in the Code send to you via SMS"
     }
-    else if(values.smsNumber.length > 6){
-        errors.smsNumber = "Check the code again, length cannot be greater than 6"
+    else if(values.smsNumber > 999999 || values.smsNumber < 99999){
+        errors.smsNumber = "Length should be equal to 6"
     }
     return errors;
 }
@@ -56,7 +56,7 @@ function Form3()
                                     name="phoneNo" 
                                     id="phoneNo" />
                                 </div>
-                                <div style={{marginLeft:19,marginTop:45}}>
+                                <div style={{marginLeft:19,marginTop:45}} onClick={() => setChange(false)} >
                                 <BlueBtn btnWidth={146} type="submit" title="SEND CODE" />
                                 </div>
                             </div>
@@ -74,7 +74,7 @@ function Form3()
             <form action="#" onSubmit={formik.handleSubmit}>
             <Label labelFor="smsNumber" title="SMS Code*" />
             <input 
-            type="text" 
+            type="number" 
             name="smsNumber" 
             id="sms-code" 
             value={formik.values.smsNumber}

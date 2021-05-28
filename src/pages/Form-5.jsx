@@ -29,23 +29,31 @@ function Form5()
 
                 <Label labelFor="method" title="Choose method *" />
                 <select name="method" id="method">
-                    <option value="DL">Driving Licence</option>
+                    <option value="DL" selected >Driving Licence</option>
                     <option value="LL">Learning Licence</option>
                     <option value="Passport">Passport</option>
                     <option value="Aadhar">Aadhar Card</option>
                 </select>
 
                 <Label labelFor="front-photo" title="Driving licence front photo *" />
-                <input type="file" name="fornt-photo" id="front-photo" />
+                <input
+                accept=".jpg, .png, .pdf" 
+                type="file" name="fornt-photo" id="front-photo" />
 
                 <Label labelFor="back-photo" title="Driving licence back photo *" />
-                <input type="file" name="back-photo" id="back-photo" />
+                <input
+                accept=".jpg, .png, .pdf" 
+                type="file" name="back-photo" id="back-photo" />
 
                 <Label labelFor="selfie-photo" title="Selfie holding ID doc and note *" />
-                <input type="file" name="selfie-photo" id="selfie-photo" />
+                <input
+                accept=".jpg, .png"
+                capture="user" 
+                type="file" name="selfie-photo" id="selfie-photo" />
 
                 <Label labelFor="DL-number" title="Driving licence number *" />
-                <input type="number" name="DL-number" id="DL-number" />
+                <input
+                type="number" name="DL-number" id="DL-number" />
 
                 <div className="conditional-box">
                     <input type="checkbox" name="terms" id="terms" />

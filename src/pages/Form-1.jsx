@@ -5,6 +5,7 @@ import ClockIcon from "../images/icons/clock-icon.svg";
 import Label from "../components/Label";
 import SubmitButton from "../components/SubmitBtn";
 import "../sass/forms.scss";
+import ReCaptchaV2 from "react-google-recaptcha";
 import { useHistory } from "react-router";
 
 const validate =(values) => {
@@ -84,6 +85,7 @@ function Form1()
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.firstName}
+            autoComplete="off"
             placeholder="Enter First Name"
             />
             {formik.touched.firstName && formik.errors.firstName ? (
@@ -95,6 +97,7 @@ function Form1()
             type="text" 
             id="lastName"
             name="lastName"
+            autoComplete="off"
             placeholder="Enter Last Name"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -109,6 +112,7 @@ function Form1()
             type="email" 
             name="email" 
             id="email"
+            autoComplete="off"
             placeholder="Enter Email ID"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -149,7 +153,8 @@ function Form1()
             ( <div className="error-msg"> {formik.errors.terms} </div> )
             : null}
             
-            <div className="form-1-submitBtn">
+            <ReCaptchaV2 sitekey={process.env.REACT_APP_SITE_KEY} />
+            <div style={{marginTop:40}}>
             <SubmitButton name="CONTINUE"  typeFor="submit" />
             </div>
         </form>

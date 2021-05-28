@@ -27,13 +27,16 @@ const validate = (values) => {
     if(!values.zipcode){
         errors.zipcode = "Required Zipcode";
     }
+    else if(values.zipcode > 999999){
+        errors.zipcode = "Max length allowed : 6"
+    }
     if(!values.countryCode){
         errors.countryCode = "Required Country code";
     }
     if(!values.phoneNo){
         errors.phoneNo = "Required Phone number";
     }
-    else if(values.phoneNo.length > 10){
+    else if(values.phoneNo.length > 10 || values.phoneNo.length < 10){
         errors.phoneNo = "Length should be equal to 10"
     }
 
@@ -79,7 +82,7 @@ function Form2()
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             >
-                <option value="IN">India</option>
+                <option value="IN" selected >India</option>
                 <option value="US">United States</option>
             </select>
             {formik.touched.countryName && formik.errors.countryName ? (
@@ -90,6 +93,7 @@ function Form2()
             <input 
             type="text" 
             name="firstAddress" 
+            autoComplete="off"
             id="firstAddress"
             value={formik.values.firstAddress}
             onChange={formik.handleChange}
@@ -104,6 +108,7 @@ function Form2()
             type="text" 
             name="lastAddress" 
             id="secondAddress"
+            autoComplete="off"
             value={formik.values.lastAddress}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur} 
@@ -120,6 +125,7 @@ function Form2()
                 type="text" 
                 name="stateName" 
                 id="state"
+                autoComplete="off"
                 value={formik.values.stateName}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur} 
@@ -136,6 +142,7 @@ function Form2()
                 type="text" 
                 name="cityName" 
                 id="city"
+                autoComplete="off"
                 value={formik.values.cityName}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur} 
@@ -170,7 +177,7 @@ function Form2()
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 >
-                    <option value={91}>IN</option>
+                    <option value={91} selected >IN</option>
                     <option value={1}>US</option>
                 </select>
                 {formik.touched.countryCode && formik.errors.countryCode ? (
@@ -184,6 +191,7 @@ function Form2()
                 style={{width:364}} 
                 type="tel" 
                 name="phoneNo" 
+                autoComplete="off"
                 id="phoneNo"
                 value={formik.values.phoneNo}
                 onChange={formik.handleChange}
