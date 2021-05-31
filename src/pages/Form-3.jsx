@@ -4,7 +4,6 @@ import SubmitBtn from "../components/SubmitBtn";
 import "../sass/forms.scss";
 import BlueBtn from "../components/BlueBtn";
 import "./form3.scss";
-import "./form2.scss";
 import { useFormik } from "formik";
 import { useHistory } from "react-router";
 
