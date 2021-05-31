@@ -1,15 +1,7 @@
-@import "../sass/partial";
-
 .input-wrapper{
     display: flex;
     align-items: center;
     width: 553px;
-}
-
-.input-container{
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
 }
 
 .input-wrapper .input-container:nth-child(2){
@@ -18,18 +10,4 @@
 
 .button{
     margin-top: 40px;
-}
-
-// INPUT FIELDS WIDTH
-.state-input,
-.city-input{
-    width: 267px;
-}
-
-.country-code{
-    width: 170px;
-}
-
-.phone-input{
-    width: 364px;
 }
