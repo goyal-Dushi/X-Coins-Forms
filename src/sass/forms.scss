@@ -1,12 +1,11 @@
 @import "./partial";
 
 // STYLES FOR INPUT: FORMS
-input,
-select
+.correct-input
 {
     width: 553px;
     height: 50px;
-    margin: 5px 0 0;
+    margin: 5px;
     padding: 6px 12px;
     border-radius: 10px;
     border: none;
@@ -16,29 +15,50 @@ select
     font-family: $Accurat-pro;
     font-size: 18px;
     line-height: 1.78;
+
+    &:focus,
+    &:hover{
+        box-shadow: 0 0 15px 0 $cerulean-20;
+        border: solid 1px $cerulean-30;
+        background-color: white;
+    }
+
+    &::placeholder{
+        font-family: $Accurat-pro;
+        font-size: 18px;
+        line-height: 1.78;
+        color: $blue-grey-40;        
+    }
 }
 
-input:focus,
-select:focus{
-    box-shadow: 0 0 15px 0 $cerulean-20;
-    border: solid 1px $cerulean-30;
-    background-color: white;
-}
-
-input::placeholder,
-select::placeholder
-{
+.error-input{
+    width: 553px;
+    height: 50px;
+    margin: 8px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    outline: none;
     font-family: $Accurat-pro;
     font-size: 18px;
     line-height: 1.78;
-    color: $blue-grey-40;
+    box-shadow: 0 0 15px 0 $err-color;
+    border: solid 1px $err-color;
+    background-color: white;
+    &::placeholder{
+        color: $err-color;
+        font-family: $Accurat-pro;
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 1.78;
+    }
 }
 
-// select{
-//     appearance: none;
-//     -webkit-appearance: none;
-//     -moz-appearance: none;
-// }
+.input-container{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: 120px;
+}
 
 form{
     width: 600px;
@@ -49,34 +69,38 @@ form{
 
 .error-msg{
     display: block;
-    padding:5px 10px;
+    padding: 0 5px;
     width: fit-content;
     text-align: left;
-    font-size: 16px;
-    color: red;
-    height: 20px;
+    font-weight: normal;
+    font-size: 14px;
+    color: $err-color;
+    height: fit-content;
+}
+
+.conditional-container{
+    height: 130px;
 }
 
 .conditional-box{
     width: 553px;
-    padding: 15px 0px;
-    margin-top: 20px;
+    padding: 10px 0px;
     display: flex;
     font-size: 16px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .conditional-box input{
-    height: 20px;
+    height: fit-content;
     width: 20px;
-    margin: 5px 10px ;
+    padding: 5px 10px;
     border-radius: 5px;
     background-color: $cerulean-15;
 }
 
 .conditional-box > p{
-    margin: 0 0 0 10px;
+    // margin: 0 0 0 10px;
     width: 489px;
     font-family: $Accurat-pro;
     line-height: 1.63;
