@@ -6,6 +6,9 @@ import SubmitBtn from "../components/SubmitBtn";
 import { useHistory } from "react-router";
 import { ErrorMessage, Field, Formik} from "formik";
 import * as Yup from "yup"
+import Flags from "country-flag-icons/react/3x2";
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
 
 function Form2()
 {
@@ -68,17 +71,28 @@ function Form2()
         }
     }
     >
-    
+
         {formik => (
-            <form action="" onSubmit={formik.handleSubmit} >
+            <form onSubmit={formik.handleSubmit} >
             
-            <div className="input-container">
+            <div className="input-container">   
             <Label labelFor="countryName" title="Country *" />
-            <Field className={countryNameclass} as="select" placeholder="Select Country Name" name="countryName" >
-                <option value="IN">India</option>
-                <option value="US">United States</option>
+            <Field name="countryName" >
+                {
+                    (props) => {
+                        const {meta} = props;
+                        return(
+                            <div>
+                            <Select defaultValue="" className={countryNameclass} >
+                                <MenuItem value="IN" > <Flags.IN className="icon" /> IN </MenuItem>
+                                <MenuItem value="US" > <Flags.US className="icon" /> US </MenuItem>
+                            </Select>
+                            {meta.touched && meta.error ? setCountNameClass("error-input"): setCountCodeClass("correct-input")}
+                            </div>
+                        )
+                    }
+                }
             </Field>
-            {formik.errors.countryName && formik.touched.countryName ? setCountNameClass('error-input'): setCountNameClass('correct-input')}
             <ErrorMessage name="countryName" component="div" className="error-msg" />
             </div>
 

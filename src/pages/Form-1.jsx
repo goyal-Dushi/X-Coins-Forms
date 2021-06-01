@@ -68,21 +68,21 @@ function Form1()
 
             <div className="input-container" >
             <Label title="First name*" labelFor="firstName" />
-            <Field autocomplete="off" name="firstName" type="text" placeholder="Enter First Name" className={firstNameClass} />
+            <Field autoComplete="off" name="firstName" type="text" placeholder="Enter First Name" className={firstNameClass} />
             {formik.errors.firstName && formik.touched.firstName ? setfirstNameClass('error-input') : setfirstNameClass('correct-input')}
             <ErrorMessage style={{display:"block"}} name="firstName" className="error-msg" component="div" />
             </div>
             
             <div className="input-container">
             <Label labelFor="#lastName" title="Last name*" />
-            <Field autocomplete="off" name="lastName" type="text" placeholder="Enter Last Name" className={lastNameClass} />
+            <Field autoComplete="off" name="lastName" type="text" placeholder="Enter Last Name" className={lastNameClass} />
             {formik.errors.lastName && formik.touched.lastName ? setlastNameClass('error-input') : setlastNameClass('correct-input')}
             <ErrorMessage name="lastName" className="error-msg" component="div" />
             </div>
 
             <div className="input-container">
             <Label title="Email address*" labelFor="#email" />
-            <Field autocomplete="off" type="text" name="email" placeholder="Enter Email ID" className={emailClass} />
+            <Field autoComplete="off" type="text" name="email" placeholder="Enter Email ID" className={emailClass} />
             {formik.errors.email && formik.touched.email ? setemailClass('error-input') : setemailClass('correct-input')}
             <ErrorMessage name="email" component="div" className="error-msg" />
             </div>
@@ -94,12 +94,12 @@ function Form1()
             <ErrorMessage name="password" component="div" className="error-msg" />
             </div>
 
-            <div className="conditional-container">
+            <div className="conditional-container" style={{height:130}}>
             <div className="conditional-box" >
                 <Field type="checkbox" name="terms" />
                 <p>
-                    By clicking «Continue» you agree to our <a href="#" className="links">Terms</a> ,<a href="#" className="links"> Cookies Policy </a> and 
-                    <a href="#" className="links"> Privacy Policy </a>. You may receive email and SMS notifications from 
+                    By clicking «Continue» you agree to our <a href="www.google.com" className="links">Terms</a> ,<a href="www.google.com" className="links"> Cookies Policy </a> and 
+                    <a href="www.google.com" className="links"> Privacy Policy </a>. You may receive email and SMS notifications from 
                     us and can opt out at any time.
                 </p>
             </div>
