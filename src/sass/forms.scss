@@ -31,6 +31,12 @@
     }
 }
 
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;   
+}
+
 .error-input{
     width: 553px;
     height: 50px;
@@ -69,17 +75,13 @@ form{
 
 .error-msg{
     display: block;
-    padding: 0 5px;
+    padding: 0 10px;
     width: fit-content;
     text-align: left;
     font-weight: normal;
     font-size: 14px;
     color: $err-color;
     height: fit-content;
-}
-
-.conditional-container{
-    height: 130px;
 }
 
 .conditional-box{
@@ -100,7 +102,6 @@ form{
 }
 
 .conditional-box > p{
-    // margin: 0 0 0 10px;
     width: 489px;
     font-family: $Accurat-pro;
     line-height: 1.63;
@@ -111,4 +112,14 @@ form{
     color: $cerulean;
     text-decoration: none;
     cursor: pointer;
+    font-weight: normal;
+}
+
+.icon{
+    width: 20px;
+    height: 25px;
+    outline: none;
+    border: none;
+    margin-right: 8px;
+    border-radius: 50%;
 }
