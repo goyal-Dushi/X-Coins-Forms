@@ -28,6 +28,7 @@ $cerulean-5 : rgba(0, 156, 222, 0.05);
 
 $dark-lime-green : rgb(134, 195, 6);
 
+$err-color : rgba(208, 2, 27, 0.3);
 // GLOBAL ATTRIBUTES: CSS RESET
 *,
 *::after,
@@ -50,4 +51,10 @@ body
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
+}
+
+input[type="number"],
+select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }

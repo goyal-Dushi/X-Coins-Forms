@@ -1,55 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "../sass/forms.scss";
 import "./form2.scss";
 import Label from "../components/Label";
 import SubmitBtn from "../components/SubmitBtn";
 import { useHistory } from "react-router";
-import { useFormik } from "formik";
-
-const validate = (values) => {
-    const errors = {};
-
-    if(!values.countryName){
-        errors.countryName = "Required Country name";
-    }
-    if(!values.firstAddress){
-        errors.firstAddress = "Required first address line";
-    }
-    if(!values.lastAddress){
-        errors.lastAddress = "Required second address line";
-    }
-    if(!values.stateName){
-        errors.stateName = "Required State name";
-    }
-    if(!values.cityName){
-        errors.cityName = "Required City name";
-    }
-    if(!values.zipcode){
-        errors.zipcode = "Required Zipcode";
-    }
-    else if(values.zipcode > 999999){
-        errors.zipcode = "Max length allowed : 6"
-    }
-    if(!values.countryCode){
-        errors.countryCode = "Required Country code";
-    }
-    if(!values.phoneNo){
-        errors.phoneNo = "Required Phone number";
-    }
-    else if(values.phoneNo.length > 10 || values.phoneNo.length < 10){
-        errors.phoneNo = "Length should be equal to 10"
-    }
-
-    return errors;
-}
+import { ErrorMessage, Field, Formik} from "formik";
+import * as Yup from "yup"
+import Flags from "country-flag-icons/react/3x2";
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
 
 function Form2()
 {
 
     const history = useHistory();
+    const [countryNameclass, setCountNameClass] = useState('correct-input');
+    const [firstAddclass, setfirstAddClass] = useState('correct-input');
+    const [secondAddclass, setSecondAddClass] = useState('correct-input');
+    const [stateNameclass, setStateNameClass] = useState('correct-input');
+    const [cityNameclass, setCityNameClass] = useState('correct-input');
+    const [zipcodeclass, setzipcodeClass] = useState('correct-input');
+    const [countryCodeclass, setCountCodeClass] = useState('correct-input');
+    const [phonoeclass, setPhoneClass] = useState('correct-input');
+    
+    return(
 
-    const formik = useFormik({
-        initialValues : {
+        <Formik 
+        initialValues = {{
             countryName : '',
             firstAddress : '',
             lastAddress : '',
@@ -58,9 +35,31 @@ function Form2()
             zipcode : '',
             countryCode : '',
             phoneNo : ''
-        },
-        validate,
-        onSubmit: (values) => {
+        }}
+        validationSchema = {Yup.object({
+            countryName : Yup.string()
+            .required("Required Country Name"),
+            firstAddress : Yup.string()
+            .required("Required First Address Field"),
+            lastAddress : Yup.string()
+            .required("Required Second Address Field"),
+            stateName : Yup.string()
+            .required("Required State Name"),
+            cityName : Yup.string()
+            .required("Required City name"),
+            zipcode : Yup.number()
+            .max(999999, "Max lenght cannot exceed 6 digits")
+            .required("Required zipcode"),
+            countryCode : Yup.string()
+            .required("Required Country code"),
+            phoneNo : Yup.number()
+            .required("Required Phone number")
+            .positive("Negative Number")
+            .max(9999999999,"Invalid Number")
+            .min(1000000000, "Invalid Number")
+
+        })}
+        onSubmit = {(values) => {
             console.log(
                 "Country Name : "+values.countryName+
                 " Country Code : "+values.countryCode+
@@ -70,144 +69,94 @@ function Form2()
             );
             history.push("/sms");
         }
-    })
+    }
+    >
 
-    return(
-        <form action="" onSubmit={formik.handleSubmit} >
+        {formik => (
+            <form onSubmit={formik.handleSubmit} >
+            
+            <div className="input-container">   
             <Label labelFor="countryName" title="Country *" />
-            <select 
-            name="countryName" 
-            id="country"
-            value={formik.values.countryName}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            >
-                <option value="IN" selected >India</option>
-                <option value="US">United States</option>
-            </select>
-            {formik.touched.countryName && formik.errors.countryName ? (
-                <div className="error-msg"> {formik.errors.countryName} </div>
-            ): null}
+            <Field name="countryName" >
+                {
+                    (props) => {
+                        const {meta} = props;
+                        return(
+                            <div>
+                            <Select defaultValue="" className={countryNameclass} >
+                                <MenuItem value="IN" > <Flags.IN className="icon" /> IN </MenuItem>
+                                <MenuItem value="US" > <Flags.US className="icon" /> US </MenuItem>
+                            </Select>
+                            {meta.touched && meta.error ? setCountNameClass("error-input"): setCountCodeClass("correct-input")}
+                            </div>
+                        )
+                    }
+                }
+            </Field>
+            <ErrorMessage name="countryName" component="div" className="error-msg" />
+            </div>
 
+            <div className="input-container">
             <Label labelFor="firstAddress" title="First line address *" />
-            <input 
-            type="text" 
-            name="firstAddress" 
-            autoComplete="off"
-            id="firstAddress"
-            value={formik.values.firstAddress}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur} 
-            />
-            {formik.touched.firstAddress && formik.errors.firstAddress ? (
-                    <div className="error-msg"> {formik.errors.firstAddress} </div>
-            ): null}
+            <Field className={firstAddclass} type="text" placeholder="First Address Line" name="firstAddress" />
+            {formik.errors.firstAddress && formik.touched.firstAddress ? setfirstAddClass('error-input'): setfirstAddClass('correct-input')}
+            <ErrorMessage name="firstAddress" component="div" className="error-msg" />
+            </div>
 
-            <Label labelFor="secondAddress" title="Second line address *" />
-            <input 
-            type="text" 
-            name="lastAddress" 
-            id="secondAddress"
-            autoComplete="off"
-            value={formik.values.lastAddress}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur} 
-            />
-            {formik.touched.lastAddress && formik.errors.lastAddress ? (
-                    <div className="error-msg"> {formik.errors.lastAddress} </div>
-            ): null}
+            <div className="input-container">
+            <Label labelFor="lastAddress" title="Second line address *" />
+            <Field className={secondAddclass} type="text" name="lastAddress" placeholder="Second Address Line" />
+            {formik.errors.lastAddress && formik.touched.lastAddress ? setSecondAddClass('error-input'): setSecondAddClass('correct-input')}
+            <ErrorMessage name="lastAddress" component="div" className="error-msg" />
+            </div>
 
             <div className="input-wrapper">
-                <div className="input-container">
+                <div style={{maxWidth:267}} className="input-container">
                 <Label labelFor="state" title="State/Province *" />
-                <input 
-                style={{width:267}}
-                type="text" 
-                name="stateName" 
-                id="state"
-                autoComplete="off"
-                value={formik.values.stateName}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur} 
-                />
-                {formik.touched.stateName && formik.errors.stateName ? (
-                    <div className="error-msg"> {formik.errors.stateName} </div>
-                ): null}
+                <Field style={{width:267}} className={stateNameclass} name="stateName" placeholder="State Name" type="text" />
+                {formik.errors.stateName && formik.touched.stateName ? setStateNameClass('error-input'): setStateNameClass('correct-input')}
+                <ErrorMessage name="stateName" className="error-msg" component="div" />
                 </div>
 
-                <div className="input-container">
+                <div className="input-container" style={{maxWidth:267}}>
                 <Label labelFor="cityName" title="City/Town *" />
-                <input
-                style={{width:267}} 
-                type="text" 
-                name="cityName" 
-                id="city"
-                autoComplete="off"
-                value={formik.values.cityName}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur} 
-                />
-                {formik.touched.cityName && formik.errors.cityName ? (
-                    <div className="error-msg"> {formik.errors.cityName} </div>
-                ): null}
+                <Field style={{width:267}} name="cityName" className={cityNameclass} placeholder="City Name" type="text" />
+                {formik.errors.cityName && formik.touched.cityName ? setCityNameClass('error-input'): setCityNameClass('correct-input')}
+                <ErrorMessage name="cityName" component="div" className="error-msg" />
                 </div>
-
             </div>
             
+            <div className="input-container">
             <Label labelFor="zipcode" title="Zip code / Post code*" />
-            <input 
-            type="number" 
-            name="zipcode" 
-            id="zipcode"
-            value={formik.values.zipcode}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur} 
-            />
-            {formik.touched.zipcode && formik.errors.zipcode ? (
-                    <div className="error-msg"> {formik.errors.zipcode} </div>
-            ): null}
+            <Field name="zipcode" type="number" className={zipcodeclass} placeholder="Zipcode" />
+            {formik.errors.zipcode && formik.touched.zipcode ? setzipcodeClass('error-input'): setzipcodeClass('correct-input')}
+            <ErrorMessage name="zipcode" component="div" className="error-msg" />
+            </div>
             
             <div className="input-wrapper">
-                
-                <div className="input-container">
+                <div className="input-container" style={{maxWidth:170}} >
                 <Label labelFor="countryCode" title="Country code *" />
-                <select 
-                style={{width:170}} name="countryCode" id="countryCode"
-                value={formik.values.countryCode}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                >
-                    <option value={91} selected >IN</option>
+                <Field style={{width:170}} as="select" className={countryCodeclass}  name="countryCode" type="text" >
+                    <option value={91} >IN</option>
                     <option value={1}>US</option>
-                </select>
-                {formik.touched.countryCode && formik.errors.countryCode ? (
-                    <div className="error-msg"> {formik.errors.countryCode} </div>
-                ): null}
+                </Field>
+                {formik.errors.countryCode && formik.touched.countryCode ? setCountCodeClass('error-input'): setCountCodeClass('correct-input')}
+                <ErrorMessage name="countryCode" component="div" className="error-msg" />
                 </div>
-                
-                <div className="input-container">
+                <div style={{maxWidth:364}} className="input-container">
                 <Label labelFor="phoneNo" title="Phone number *" />
-                <input
-                style={{width:364}} 
-                type="tel" 
-                name="phoneNo" 
-                autoComplete="off"
-                id="phoneNo"
-                value={formik.values.phoneNo}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur} 
-                />
-                {formik.touched.phoneNo && formik.errors.phoneNo ? (
-                    <div className="error-msg"> {formik.errors.phoneNo} </div>
-                ): null}
+                <Field style={{width:364}} type="tel" className={phonoeclass} placeholder="Enter Phone number" name="phoneNo" />
+                {formik.errors.phoneNo && formik.touched.phoneNo ? setPhoneClass('error-input'): setPhoneClass('correct-input')}
+                <ErrorMessage name="phoneNo" component="div" className="error-msg" />
                 </div>
-
             </div>
 
             <div className="button">
             <SubmitBtn typeFor="submit" name="CONTINUE" />
             </div>
         </form>
+        )}
+        </Formik>
     );
 }
 

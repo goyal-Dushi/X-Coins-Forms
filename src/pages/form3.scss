@@ -14,19 +14,9 @@
     font-size: 16px;
     line-height: 1.75;
     color: $blue-grey;
-}
 
-.info-container span{
-    color: black;
-    margin-right: 10px;
-}
-
-.error-msg{
-    display: block;
-    padding:5px 10px;
-    text-align: left;
-    width: 553px;
-    font-size: 16px;
-    color: red;
-    height: 20px;
+    span{
+        color: black;
+        margin-right: 10px;
+    }
 }
