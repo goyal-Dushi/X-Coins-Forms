@@ -2,97 +2,74 @@ import React, { useState } from "react";
 import Label from "../components/Label";
 import SubmitBtn from "../components/SubmitBtn";
 import "../sass/forms.scss";
-import BlueBtn from "../components/BlueBtn";
 import "./form3.scss";
-import { useFormik } from "formik";
+import { ErrorMessage, Field, Formik } from "formik";
+import UpdatePhone from "./UpdatePhone";
+import * as Yup from "yup";
 import { useHistory } from "react-router";
-
-const validate = (values) => {
-    const errors = {};
-    if(!values.smsNumber){
-        errors.smsNumber = "Please type in the Code send to you via SMS"
-    }
-    else if(values.smsNumber > 999999 || values.smsNumber < 99999){
-        errors.smsNumber = "Length should be equal to 6"
-    }
-    return errors;
-}
 
 function Form3()
 {
 
     const [changeNumber, setChange] = useState(false);
+    const [smsClass, setsmsClass] = useState("correct-input");
     const history = useHistory();
-    const formik = useFormik({
-        initialValues: {
-            smsNumber : ''
-        },
-        validate,
-        onSubmit : (values)=> {
-            console.log("SMS CODE IS : "+values.smsNumber);
-            history.push("/verifyID");
-        }   
-    });
 
     return(
         <>
 
-            {changeNumber ? (
-                            <form action="#">
-                            <div className="input-wrapper">
-                                <div className="input-container">
-                                    <Label labelFor="country-code" title="Country code *" />
-                                    <select style={{width:170}} name="country-code" id="country-code" >
-                                        <option value="IN">IN</option>
-                                        <option value="US">US</option>
-                                    </select>
-                                </div>
-                                <div className="input-container">
-                                    <Label labelFor="phoneNo" title="Phone number *" />
-                                    <input 
-                                    style={{width:199}}
-                                    type="tel" 
-                                    name="phoneNo" 
-                                    id="phoneNo" />
-                                </div>
-                                <div style={{marginLeft:19,marginTop:45}} onClick={() => setChange(false)} >
-                                <BlueBtn btnWidth={146} type="submit" title="SEND CODE" />
-                                </div>
-                            </div>
-                        </form>
-            ) : (
+            {changeNumber ? 
+                <UpdatePhone function={setChange} /> :
                 <div className="info-container">
-                <p>
+                <div>
                     Please enter seven digit code we just sent to your
-                    number <span>+202-502-5899</span> 
-                    <a type="button" onClick={() => setChange(true)} className="links"> Change </a>
-                </p>
+                    number
+                    <div style={{display:"flex"}}>
+                    <span>+202-502-5899</span> 
+                    <div onClick={() => setChange(true)} className="links"> Change </div>
+                    </div> 
+                </div>
             </div>
+            }
+            <Formik
+
+                initialValues = {{
+                    smsNumber : ''
+                }}
+                validationSchema = {Yup.object({
+                    smsNumber : Yup.number()
+                    .required("Required SMS Code")
+                    .positive("Code Invalid")
+                    .min(100000, "Code must be of 6 digits")
+                    .max(999999,"Code must be of 6 digits")
+                })}
+                onSubmit = {(values)=> {
+                    console.log("SMS CODE IS : "+values.smsNumber);
+                    history.push("/verifyID");
+                }}
+            >
+            
+            {formik => (
+                <form onSubmit={formik.handleSubmit}>
+
+                <div className="input-container">
+                <Label labelFor="smsNumber" title="SMS Code*" />
+                <Field name="smsNumber" plaholder="Enter SMS code" type="number" className={smsClass} />
+                {formik.errors.smsNumber && formik.touched.smsNumber ? setsmsClass("error-input") : setsmsClass("correct-input")}
+                <ErrorMessage name="smsNumber" component="div" className="error-msg" />
+                </div>
+                {/* , textAlign:"center",width:553 */}
+                <div style={{marginTop:18}} className="conditional-box">
+                    <p>You have 3 attempts left.Didn't receive the SMS.
+                         <a href="www.google.com" className="links"> Resend SMS Code </a>
+                    </p>
+                </div>
+                <div style={{marginTop:34}}>
+                <SubmitBtn typeFor="submit" name="VERIFY PHONE NUMBER" />
+                </div>  
+                </form>
             )}
-
-            <form action="#" onSubmit={formik.handleSubmit}>
-            <Label labelFor="smsNumber" title="SMS Code*" />
-            <input 
-            type="number" 
-            name="smsNumber" 
-            id="sms-code" 
-            value={formik.values.smsNumber}
-            onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
-            />
-            {formik.touched.smsNumber && formik.errors.smsNumber ? (
-                <div className="error-msg"> {formik.errors.smsNumber} </div>
-            ): null}
-
-            <div style={{marginTop:18, textAlign:"center",width:553}} className="conditional-box">
-                <p>You have 3 attempts left.Didn't receive the SMS.
-                     <a href="#" className="links"> Resend SMS Code </a>
-                </p>
-            </div>
-            <div style={{marginTop:34}}>
-            <SubmitBtn typeFor="submit" name="VERIFY PHONE NUMBER" />
-            </div>  
-            </form>
+            </Formik>
         </>
     );
 }
