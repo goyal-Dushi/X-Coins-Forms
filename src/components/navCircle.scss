@@ -1,23 +1,27 @@
 @import "../sass/partial";
 
-.circle
-{
-    width: 64px;
-    font-weight: 500;
-    margin: 0 21px 13px 22px;
-    border-radius: 100%;
-    color: $blue-grey;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1.17;
-    font-size: 24px;
-    font-family: $Circular-Std;
-    height: 64px;
-    padding: 18px 27px;
-    background-color: $cerulean-5;
+.circle {
+  width: 64px;
+  font-weight: 500;
+  margin: 0 21px 13px 22px;
+  border-radius: 100%;
+  color: $blue-grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.17;
+  font-size: 24px;
+  font-family: $Circular-Std;
+  height: 64px;
+  padding: 18px 27px;
+  background-color: $cerulean-5;
 }
 
-.circle-wrapper{
-    text-align: center;
+.activeCircle {
+  background-color: $cerulean;
+  color: white;
+}
+
+.circle-wrapper {
+  text-align: center;
 }
