@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "https://goyal-dushi.github.io/X-Coins-Forms/static/css/main.9c990094.chunk.css",
-    "main.js": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/main.426d0db6.chunk.js",
-    "main.js.map": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/main.426d0db6.chunk.js.map",
-    "runtime-main.js": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/runtime-main.c8f85735.js",
-    "runtime-main.js.map": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/runtime-main.c8f85735.js.map",
-    "static/js/2.dfd55b26.chunk.js": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/2.dfd55b26.chunk.js",
-    "static/js/2.dfd55b26.chunk.js.map": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/2.dfd55b26.chunk.js.map",
+    "main.css": "https://goyal-dushi.github.io/X-Coins-Forms/static/css/main.4485ddd0.chunk.css",
+    "main.js": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/main.d7bdd62e.chunk.js",
+    "main.js.map": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/main.d7bdd62e.chunk.js.map",
+    "runtime-main.js": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/runtime-main.3d79d454.js",
+    "runtime-main.js.map": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/runtime-main.3d79d454.js.map",
+    "static/js/2.e53998b1.chunk.js": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/2.e53998b1.chunk.js",
+    "static/js/2.e53998b1.chunk.js.map": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/2.e53998b1.chunk.js.map",
     "index.html": "https://goyal-dushi.github.io/X-Coins-Forms/index.html",
-    "static/css/main.9c990094.chunk.css.map": "https://goyal-dushi.github.io/X-Coins-Forms/static/css/main.9c990094.chunk.css.map",
-    "static/js/2.dfd55b26.chunk.js.LICENSE.txt": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/2.dfd55b26.chunk.js.LICENSE.txt",
+    "static/css/main.4485ddd0.chunk.css.map": "https://goyal-dushi.github.io/X-Coins-Forms/static/css/main.4485ddd0.chunk.css.map",
+    "static/js/2.e53998b1.chunk.js.LICENSE.txt": "https://goyal-dushi.github.io/X-Coins-Forms/static/js/2.e53998b1.chunk.js.LICENSE.txt",
     "static/media/attention-icon.65235be9.svg": "https://goyal-dushi.github.io/X-Coins-Forms/static/media/attention-icon.65235be9.svg",
     "static/media/clock-icon.e0d15e0f.svg": "https://goyal-dushi.github.io/X-Coins-Forms/static/media/clock-icon.e0d15e0f.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c8f85735.js",
-    "static/js/2.dfd55b26.chunk.js",
-    "static/css/main.9c990094.chunk.css",
-    "static/js/main.426d0db6.chunk.js"
+    "static/js/runtime-main.3d79d454.js",
+    "static/js/2.e53998b1.chunk.js",
+    "static/css/main.4485ddd0.chunk.css",
+    "static/js/main.d7bdd62e.chunk.js"
   ]
 }
