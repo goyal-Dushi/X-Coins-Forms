@@ -39,5 +39,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 # Contribution Guidelines
 1) Raise an issue before making a contribution or comment `'interested'` if want to work on a particular issue
-2) After assignement, clone the repo and install all the dependencies 
+2) After assignement, fork the repo and install all the dependencies 
 3) Make sure to make a new branch for working on the issue `(no PR accepted on the main/master branch)`
